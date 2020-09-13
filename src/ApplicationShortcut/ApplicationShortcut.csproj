@@ -9,7 +9,6 @@
         <Title>Application Shortcut</Title>
         <Authors>Y56380X</Authors>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <PackageProjectUrl>https://github.com/Y56380X/ApplicationShortcut</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Y56380X/ApplicationShortcut</RepositoryUrl>
     </PropertyGroup>
