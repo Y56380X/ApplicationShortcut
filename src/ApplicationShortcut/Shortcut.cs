@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using IWshRuntimeLibrary;
 
 namespace ApplicationShortcut
 {
@@ -8,7 +9,7 @@ namespace ApplicationShortcut
 		private static IShortcutGenerator CreateShortcutGenerator() => Environment.OSVersion.Platform switch
 		{
 			PlatformID.Unix => new GnomeShortcutGenerator(),
-			PlatformID.Win32NT => throw new NotImplementedException(),
+			PlatformID.Win32NT => new WindowsShortcutGenerator(),
 			_ => throw new NotSupportedException()
 		};
 		

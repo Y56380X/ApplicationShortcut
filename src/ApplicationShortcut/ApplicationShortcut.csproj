@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="CSharpLib" Version="3.0.1" />
+    </ItemGroup>
+
 </Project>
