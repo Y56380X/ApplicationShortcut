@@ -4,10 +4,22 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0-preview1</PackageVersion>
+        <Title>Application Shortcut</Title>
+        <Authors>Y56380X</Authors>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <PackageProjectUrl>https://github.com/Y56380X/ApplicationShortcut</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Y56380X/ApplicationShortcut</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="CSharpLib" Version="3.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../LICENSE" Pack="true" PackagePath="" />
     </ItemGroup>
 
 </Project>
