@@ -25,6 +25,7 @@
 using System;
 using System.IO;
 using System.Text;
+using Mono.Unix;
 
 namespace ApplicationShortcut
 {
@@ -49,6 +50,8 @@ namespace ApplicationShortcut
 			shortcutBuilder.AppendLine("Terminal=false");
 
 			File.WriteAllText(shortcutPath, shortcutBuilder.ToString());
+
+			UnixFileSystemInfo.GetFileSystemEntry(shortcutPath).FileAccessPermissions |= FileAccessPermissions.UserExecute;
 		}
 	}
 }
