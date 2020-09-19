@@ -38,10 +38,11 @@ namespace ApplicationShortcut
 	{
 		public void Generate(ShortcutRequest shortcutRequest)
 		{
+			var shortcutName = shortcutRequest.ShortcutName.ToLower().Replace(" ", "-");
 			var shortcutPath = Path.Combine(
 				shortcutRequest.ShortcutDirectoryPath, 
-				$"{shortcutRequest.ShortcutName.ToLower()}.desktop");
-			
+				$"{shortcutName}.desktop");
+
 			if (File.Exists(shortcutPath))
 			{
 				var exception = new InvalidOperationException("Shortcut already exists.");
