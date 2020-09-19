@@ -29,6 +29,11 @@ using Mono.Unix;
 
 namespace ApplicationShortcut
 {
+	public static class ExceptionData
+	{
+		public const string ShortcutPath = "shortcut_path";
+	}
+	
 	internal class GnomeShortcutGenerator : IShortcutGenerator
 	{
 		public void Generate(ShortcutRequest shortcutRequest)
@@ -38,8 +43,12 @@ namespace ApplicationShortcut
 				$"{shortcutRequest.ShortcutName.ToLower()}.desktop");
 			
 			if (File.Exists(shortcutPath))
-				throw new InvalidOperationException("Shortcut already exists.");
-			
+			{
+				var exception = new InvalidOperationException("Shortcut already exists.");
+				exception.Data[ExceptionData.ShortcutPath] = shortcutPath;
+				throw exception;
+			}
+
 			var shortcutBuilder = new StringBuilder();
 			shortcutBuilder.AppendLine("[Desktop Entry]");
 			shortcutBuilder.AppendLine($"Name={shortcutRequest.ShortcutName}");
