@@ -44,7 +44,7 @@ namespace ApplicationShortcut
 			shortcutBuilder.AppendLine($"Name={shortcutRequest.ShortcutName}");
 			shortcutBuilder.AppendLine($"Exec={shortcutRequest.SourceFullPath}");
 			shortcutBuilder.AppendLine("Type=Application");
-			shortcutBuilder.AppendLine("Icon=");
+			shortcutBuilder.AppendLine($"Icon={shortcutRequest.IconPath}");
 			shortcutBuilder.AppendLine("Comment=");
 			shortcutBuilder.AppendLine("Terminal=false");
 

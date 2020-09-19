@@ -5,7 +5,7 @@
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0-preview1</PackageVersion>
+        <PackageVersion>1.0-preview4</PackageVersion>
         <Title>Application Shortcut</Title>
         <Authors>Y56380X</Authors>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="CSharpLib" Version="3.0.1" />
+      <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
