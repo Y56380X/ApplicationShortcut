@@ -54,6 +54,7 @@ namespace ApplicationShortcut
 			shortcutBuilder.AppendLine("[Desktop Entry]");
 			shortcutBuilder.AppendLine($"Name={shortcutRequest.ShortcutName}");
 			shortcutBuilder.AppendLine($"Exec={shortcutRequest.SourceFullPath}");
+			shortcutBuilder.AppendLine($"Path={shortcutRequest.WorkingDirectory}");
 			shortcutBuilder.AppendLine("Type=Application");
 			shortcutBuilder.AppendLine($"Icon={shortcutRequest.IconPath}");
 			shortcutBuilder.AppendLine("Comment=");

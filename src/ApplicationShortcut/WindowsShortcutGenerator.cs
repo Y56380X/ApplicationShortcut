@@ -39,7 +39,8 @@ namespace ApplicationShortcut
 				throw new InvalidOperationException("Shortcut already exists.");
 			
 			var shortcut = new CSharpLib.Shortcut();
-			shortcut.CreateShortcutToFile(shortcutRequest.SourceFullPath, shortcutPath);
+			shortcut.CreateShortcutToFile(shortcutRequest.SourceFullPath, shortcutPath,
+				WorkingDirectory: shortcutRequest.WorkingDirectory);
 		}
 	}
 }

@@ -23,6 +23,7 @@
 */
 
 using System;
+using System.IO;
 
 namespace ApplicationShortcut
 {
@@ -32,34 +33,39 @@ namespace ApplicationShortcut
 		public string ShortcutName { get; }
 		public string SourceFullPath { get; }
 		public string? IconPath { get; set; }
+		public string WorkingDirectory { get; set; }
+
+		public ShortcutRequest(
+			string shortcutDirectoryPath, 
+			string shortcutName, 
+			string sourceFullPath,
+			string workingDirectory)
+		{
+			ShortcutDirectoryPath = shortcutDirectoryPath;
+			ShortcutName = shortcutName;
+			SourceFullPath = sourceFullPath;
+			WorkingDirectory = workingDirectory;
+		}
 
 		public ShortcutRequest(
 			string shortcutName,
-			string sourceFullPath)
+			string sourceFullPath) : this(
+			ShortcutPathProvider.PathForLauncher(),
+			shortcutName,
+			sourceFullPath,
+			new FileInfo(sourceFullPath).DirectoryName!)
 		{
-			ShortcutDirectoryPath = ShortcutPathProvider.PathForLauncher();
-			ShortcutName = shortcutName;
-			SourceFullPath = sourceFullPath;
 		}
 		
 		public ShortcutRequest(
 			Environment.SpecialFolder shortcutFolder,
 			string shortcutName,
-			string sourceFullPath)
+			string sourceFullPath) : this(
+			Environment.GetFolderPath(shortcutFolder),
+			shortcutName, 
+			sourceFullPath,
+			new FileInfo(sourceFullPath).DirectoryName!)
 		{
-			ShortcutDirectoryPath = Environment.GetFolderPath(shortcutFolder);
-			ShortcutName = shortcutName;
-			SourceFullPath = sourceFullPath;
-		}
-		
-		public ShortcutRequest(
-			string shortcutDirectoryPath, 
-			string shortcutName, 
-			string sourceFullPath)
-		{
-			ShortcutDirectoryPath = shortcutDirectoryPath;
-			ShortcutName = shortcutName;
-			SourceFullPath = sourceFullPath;
 		}
 	}
 }
